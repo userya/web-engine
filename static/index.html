@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jot.css">
+    <title>index</title>
+</head>
+<body>
+<div ms-controller="frameController">
+    <div id="header" style=" height: 33px">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="javascript:void(0)">EMAP</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li ms-repeat="$apps" ms-class-active="el.id == currentAppId">
+                            <a ms-href="#!/{{el.id}}" >
+                                {{el.title}}
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                   <h4> &nbsp;angsmarty@gmail.com</h4>
+                                </li>
+                                <li><a href="#">个人设置</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div id="leftNav" style="float: left; width: 200px; border-right: 1px solid #ccc; overflow: auto;position:relative; background-color:#f8f8f8"
+         ms-css-height="leftHeight">
+        <ul class="nav nav-pills nav-stacked" role="tablist">
+            <li role="presentation" ms-repeat-o1="currentModules" ms-class-active="currentModuleId==o1.id">
+                <a  ms-if="!o1.hasModule" ms-href="#!/{{o1.appId}}/{{o1.id}}">{{o1.title}}</a>
+                <a  ms-if="o1.hasModule" href="javascript:void(0)">{{o1.title}}</a>
+                <div ms-if="o1.hasModule">
+                    <ul class="nav nav-pills nav-stacked" role="tablist" >
+                        <li role="presentation" ms-repeat-o2="o1.modules" ms-class-active="currentModuleId==o2.id">
+                            <a ms-href="#!/{{o2.appId}}/{{o2.id}}" ><span style="padding-left: 5px">&nbsp;</span>{{o2.title}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div style="float: left; margin-left: 4px">
+        <div id="subMenu" style="border-bottom: 1px solid #ccc">
+            <div class="borderDiv" style="font-weight: bold; line-height: 32px">
+                {{currentAppId}} / {{currentModuleId}}
+            </div>
+        </div>
+        <div>
+            <div id="treeNav" style="float: left; width: 200px; " ms-visible="showTree">
+                <div style="width: 100%; border-bottom: 1px solid #ccc;border-right: 1px solid #ccc">
+                    <div class="borderDiv" style="margin: 2px 3px; height: 30px;line-height: 30px">
+                        {{treeTitle}}
+                    </div>
+                </div>
+                <div style="width: 100%;border-right: 1px solid #ccc;overflow: auto;position:relative;"
+                     ms-css-height="contentHeight">
+                    <div class="borderDiv" ms-include-src="treeTemplate" id="treeTemplateDiv">
+
+                    </div>
+                </div>
+            </div>
+            <div style="float: left; width: 300px" ms-css-width="contentWidth">
+                <div style="width: 100%;border-bottom: 1px solid #ccc" id="toolbar">
+                    <div class="borderDiv" style="margin: 2px 3px; height: 30px;line-height: 30px">
+                        <button type="button" class="btn btn-success">Success</button>
+                        <button type="button" class="btn btn-danger">Danger</button>
+                        <button type="button" class="btn btn-primary">Primary</button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Action <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 100%;overflow: auto;position:relative; padding: 2px" ms-css-height="contentHeight">
+                    <div class="borderDiv" ms-include-src="contentTemplate" id="contentTemplateDiv" data-include-rendered="templateRendered">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="jquery-1.10.2.js"></script>
+<script src="jquery.jqGrid-4.7.0/js/jquery.jqGrid.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="jot/avalon.js"></script>
+<script>
+    require(["global","jotRouter"], function (global) {
+        //启动路由
+        avalon.history.start({
+            basepath: "/"
+        })
+        avalon.scan();
+        global.resetFrame();
+        window.onresize = function () {
+            global.resetFrame();
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<page>
+    <params>
+        <param key=""></param>
+    </params>
+    <treeBar title="">
+        <simpleTree>
+
+        </simpleTree>
+        <entityTree>
+
+        </entityTree>
+    </treeBar>
+    <toolBar>
+        <button></button>
+        <button></button>
+        <button></button>
+    </toolBar>
+    <contentBar>
+        <seachGrid>
+            <seachBar>
+
+            </seachBar>
+            <grid>
+
+            </grid>
+        </seachGrid>
+        <form>
+            <group title="">
+
+            </group>
+        </form>
+    </contentBar>
+</page>
