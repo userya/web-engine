@@ -1,7 +1,7 @@
 /**
  * Created by JJ on 2014/12/18.
  */
-define("sys/account/index", ["global","smartgrid/avalon.smartgrid"], function (g) {
+define("sys/account/index", ["global","smartgrid/avalon.smartgrid", "jotGrid/jotGrid"], function (g) {
 
     function getDatas(number) {
         var data = []
@@ -23,6 +23,9 @@ define("sys/account/index", ["global","smartgrid/avalon.smartgrid"], function (g
     var indexVM = avalon.define("sys/account/index", function (vm) {
         vm.$skipArray =  ["smartgrid"];
         vm.smartgrid = {};
+        vm.$opts = {
+            name:"sssssssssss"
+        }
         vm.init = function () {
             //alert("init");
             //g.showTree = false;
