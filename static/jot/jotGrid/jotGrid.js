@@ -6,38 +6,38 @@ define(["avalon"], function (avalon) {
         //由于innerHTML要依赖许多widget后来添加的新属性，这时如果被扫描肯定报“不存在”错误
         //因此先将它清空
         //avalon.clearHTML(element);
-
-        $(element).jqGrid({
+        var page = jQuery(element).children("div")
+        jQuery(element).children("table").jqGrid({
             url: 'data.json',
             datatype: "json",
             colModel: [
-                { label: 'Category Name', name: 'CategoryName', width: 75 },
+                { label: 'Category Name', name: 'CategoryName' },
                 { label: 'Product Name', name: 'ProductName', width: 90 },
                 { label: 'Country', name: 'Country', width: 100 },
-                { label: 'Price', name: 'Price', width: 80, sorttype: 'integer' },
+                { label: 'Price', name: 'Price', width: 80},
                 // sorttype is used only if the data is loaded locally or loadonce is set to true
-                { label: 'Quantity', name: 'Quantity', width: 80, sorttype: 'number' }
+                { label: 'Quantity', name: 'Quantity', width: 80 }
             ],
             viewrecords: true, // show the current page, data rang and total records on the toolbar
-            width: 780,
-            height: 200,
+            width: 1000,
+            height: 300,
             rowNum: 30,
             loadonce: true,
-            pager: "#jqGridPager"
+            pager: page
         });
 
-        var model = avalon.define(data.testuiId, function (vm) {
+        var model = avalon.define("a", function (vm) {
             avalon.mix(vm, data.testuiOptions)//优先添加用户的配置，防止它覆盖掉widget的一些方法与属性
             vm.value = 0; // 给input一个个默认的数值
             vm.plus = function (e) { // 只添加了这个plus
                 model.value++;
             }
         })
-        avalon.nextTick(function () {
-            //widget的VM已经生成，可以添加回去让它被扫描
-            element.innerHTML = innerHTML
-            avalon.scan(element, [model].concat(vmodels))
-        })
+        //avalon.nextTick(function () {
+        //    //widget的VM已经生成，可以添加回去让它被扫描
+        //    element.innerHTML = innerHTML
+        //    avalon.scan(element, [model].concat(vmodels))
+        //})
         return model//必须返回新VM
     }
     avalon.ui["grid"].defaults = {
