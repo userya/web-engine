@@ -74,7 +74,7 @@ define(["avalon", "text!./avalon.searchcombox.html","avalon.getModel", "css!./av
                 }else{
                     vmodel.data.splice(0,vmodel.data.length);
                     for(var i = 0; i < vmodel.localData.length; i++){
-                        if(vmodel.localData[i].text.indexOf(keyword)>0){
+                        if(vmodel.localData[i].text.indexOf(keyword)>=0){
                             vmodel.data.push(vmodel.localData[i]);
                         }
                     }

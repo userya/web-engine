@@ -7,10 +7,12 @@ define(["avalon", "text!./avalon.searchbar.html", "css!./avalon.searchbar.css", 
     /**
     *   templateArr = template.split('MS_OPTION_EJS');
     */
-    var count = 0;
+    var count = 0, order = {};
+
     function getCnt(){
         return count++;
     }
+
     var widget = avalon.ui.searchbar = function (element, data, vmodels) {
         var options = data.searchbarOptions,
         $element = avalon(element),
@@ -54,8 +56,9 @@ define(["avalon", "text!./avalon.searchbar.html", "css!./avalon.searchbar.css", 
 
         for(var i = 0;  i < vm.searchItems.length; i++){
             (function(){
-                var nickName =  "$searchitem" + getCnt();
                 var item = vm.searchItems[i];
+                order[item.label] =  i;
+                var nickName =  "$searchitem" + getCnt();
                 vm.searchItems[i].nickName = nickName;
                 vm[nickName] = vm.searchItems[i];
                 vm[nickName].afterSelect = function (value, text) {
@@ -78,8 +81,20 @@ define(["avalon", "text!./avalon.searchbar.html", "css!./avalon.searchbar.css", 
             }
 
             vmodel.selectedItems.push(selectedItem);
+            orderSelectedItem();
         }
 
+        function orderSelectedItem(){
+            vmodel.selectedItems.sort(function (a, b) {
+               if(order[a.label] > order[b.label])
+                   return 1;
+                else if(order[a.label] == order[b.label])
+                    return 0;
+                else
+                    return -1;
+
+            });
+        }
         function renderAlterItems(){
             for(var i = 0; i < vmodel.searchItems.length; i++){
                 var item = vmodel.searchItems[i];

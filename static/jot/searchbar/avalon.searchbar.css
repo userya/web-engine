@@ -28,7 +28,7 @@
     border-bottom: 1px solid gray;
     height: 20px;
     line-height: 20px;
-    padding-right: 4px;
+    padding-right: 16px;
 }
 
 .oni-searchbar-selected-item-over{
@@ -39,10 +39,14 @@
     position:absolute;
     width:15px;
     height: 15px;
-    border:1px solid gray;
     right:2px;
     top:3px;
     display: none;
+    background: url('./images/close.png') no-repeat 0px 0px;
+}
+
+.oni-searchbar-close-over{
+    background: url('./images/close.png') no-repeat -20px 0px;
 }
 
 .oni-searchbar-selected-item-over .oni-searchbar-close{
