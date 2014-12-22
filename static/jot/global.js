@@ -1,27 +1,15 @@
 /**
  * Created by JJ on 2014/12/15.
  */
-define("global", ["jotMenu"], function (menu) {
+define("global", ["jotMenu","utils"], function (menu, utils) {
 
-    function getFrameInfo() {
-        var windowHeight = $("body").height();
-        var windowWidth = $("body").width();
-        var leftHeight = windowHeight - $("#header").height() - 2;
-        var contentWidth = windowWidth - $("#leftNav").width() - 5;
-        var contentHeight = windowHeight - $("#header").height() - $("#subMenu").height() - $("#toolbar").height();
-        return {
-            contentWidth: contentWidth,
-            contentHeight: contentHeight,
-            leftHeight: leftHeight
-        }
-    }
 
     var menuData = menu.menuData;
     var firstAppId = menu.firstAppId;
     var firstModuleId = menu.firstModuleId;
     var firstModules = menu.findModulesByAppId(firstAppId);
 
-    var finfo = getFrameInfo();
+    var finfo = utils.getFrameInfo();
     var frameVm = avalon.define("frameController", function (vm) {
 
 
@@ -31,7 +19,7 @@ define("global", ["jotMenu"], function (menu) {
         vm.leftHeight = finfo.leftHeight;
         vm.contentWidth = finfo.contentWidth;
         vm.resetFrame = function () {
-            var f = getFrameInfo();
+            var f = utils.getFrameInfo();
             vm.contentWidth = f.contentWidth;
             vm.contentHeight = f.contentHeight;
             vm.leftHeight = f.leftHeight;
