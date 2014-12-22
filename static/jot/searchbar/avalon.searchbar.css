@@ -1,0 +1,54 @@
+.oni-searchbar-container{
+    font-family: "微软雅黑", "宋体", Arial, sans-serif;
+    font-size: 12px;
+}
+
+.oni-searchbar-alternative{
+
+}
+
+.oni-searchbar-label{
+    display: inline-block;
+}
+
+.oni-searchbar-container{
+    display: inline-block;
+}
+
+.oni-searchbar-item{
+   display: inline-block;
+}
+
+.oni-searchbar-selected-item{
+    position: relative;
+    color: #4f4f4f;
+    cursor: default;
+    display: inline-block;
+    margin-right: 8px;
+    border-bottom: 1px solid gray;
+    height: 20px;
+    line-height: 20px;
+    padding-right: 16px;
+}
+
+.oni-searchbar-selected-item-over{
+    color:#000000;
+}
+
+.oni-searchbar-close{
+    position:absolute;
+    width:15px;
+    height: 15px;
+    right:2px;
+    top:3px;
+    display: none;
+    background: url('./images/close.png') no-repeat 0px 0px;
+}
+
+.oni-searchbar-close-over{
+    background: url('./images/close.png') no-repeat -20px 0px;
+}
+
+.oni-searchbar-selected-item-over .oni-searchbar-close{
+    display: block;
+}

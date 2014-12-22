@@ -1,0 +1,16 @@
+<div class="oni-searchcombox-container" ms-click="showPanel($event)">
+    <span class="oni-searchcombox-label" ms-text="label"></span>
+    <span class="oni-searchcombox-icon"></span>
+</div>
+<div class="oni-searchcombox-listpanel"
+     ms-visible="panelVisible"
+     ms-css-left="left"
+     ms-css-top="top"
+     ms-css-width="width">
+    <input type="text" class="oni-searchcombox-keyword"  ms-duplex="keyword" ms-placeholder="placeHolder" ms-click="fixPanelHidden($event)" ms-keyup="reloadListByKeyword(this)">
+
+    <ul  ms-each-item="data">
+        <li ms-data-value="item.value"><a ms-text="item.text" ms-click="selectItem(this, item.text)"></a></li>
+    </ul>
+
+</div>
