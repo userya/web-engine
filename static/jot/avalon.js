@@ -3406,7 +3406,7 @@
     //============================= string preperty binding =======================
     //与href绑定器 用法差不多的其他字符串属性的绑定器
     //建议不要直接在src属性上修改，这样会发出无效的请求，请使用ms-src
-    "title,alt,src,value,css,include,href".replace(rword, function(name) {
+    "title,alt,src,value,css,include,href,placeholder".replace(rword, function(name) {
         bindingHandlers[name] = bindingHandlers.attr
     })
     //============================= model binding =======================

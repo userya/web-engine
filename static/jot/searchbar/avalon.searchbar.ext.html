@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>searchbar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="../avalon.js"></script>
+    <script src="../highlight/shCore.js"></script>
+    <script>
+
+        require(["searchbar/avalon.searchbar"], function() {
+            avalon.define("test", function(vm) {
+                vm.name = "tstttt";
+            })
+
+            avalon.scan();
+        })
+    </script>
+</head>
+<body>
+<style>
+
+</style>
+<div ms-controller="test">
+    <div ms-widget="searchbar">
+
+    </div>
+</div>
+
+</body>
+</html>

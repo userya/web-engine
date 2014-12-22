@@ -1,0 +1,76 @@
+.oni-searchcombox-container{
+    border: 1px solid white;
+    background-color: rgb(71, 164, 168);
+    margin-right: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    cursor: default;
+    color: white;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    font-family: "微软雅黑", "宋体", Arial, sans-serif;
+    font-size: 12px;
+}
+
+.oni-searchcombox-container *{
+    margin: 0;
+    padding: 0;
+}
+.oni-searchcombox-label{
+    display: inline-block;
+}
+.oni-searchcombox-icon{
+    margin-top: 5px;
+    margin-left: 2px;
+    width: 13px;
+    height: 10px;
+    display: inline-block;
+    background: url('images/select.gif');
+}
+
+.oni-searchcombox-listpanel{
+    position: absolute;
+    color: black;
+    z-index: 99;
+    border: 1px solid #99CCFF;
+    background-color: #fcFFFF;
+}
+.oni-searchcombox-keyword{
+    width: 100%;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.oni-searchcombox-listpanel>ul{
+    list-style-type: disc;
+    list-style: none;
+    padding: 5px 0;
+    margin: 2px 0 0;
+}
+
+.oni-searchcombox-listpanel>ul>li{
+    line-height: 18px;
+    display: list-item;
+}
+
+.oni-searchcombox-listpanel>ul>li>a{
+    display: block;
+    padding: 3px 6px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #333;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.oni-searchcombox-listpanel>ul>li>a:hover{
+    background-color: #87b2d5;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#a5bbc9),to(#87acbc));
+    background-image: -webkit-linear-gradient(top, #9fbbca, #88acbc);
+    background-image: linear-gradient(to bottom, #94bac9, #8cadbc);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF617482',endColorstr='#FF506371',GradientType=0);
+    color: white;
+}
