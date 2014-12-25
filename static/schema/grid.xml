@@ -1,4 +1,4 @@
-<page id="aa" name="ddd">
+<page id="aa" name="ddd" initServerMethod="">
     <input-params>
         <param name="id" scope="request"></param>
     </input-params>
@@ -7,7 +7,7 @@
         <param name="formData" value="model[type='server']"></param>
     </output-params>
     <model id="AAA">
-        <attribute name="searcher" value=""></attribute>
+        <attribute name="searcher" value="" aaa=""></attribute>
         <attribute name="grid"></attribute>
     </model>
     <client-script>

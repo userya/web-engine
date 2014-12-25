@@ -26,17 +26,24 @@
 
         </treebar>
         <body>
-            <group name="aaa">
+            <group name="aaa" >
                 <col>
                     <field bind="id" ms-click="fff"></field>
                 </col>
-                <col>
+                <col col="1">
                     <field bind="id"></field>
                 </col>
                 <col>
                     <field bind="id"></field>
                 </col>
+                <div class="row">
+
+                </div>
+                <table>
+
+                </table>
             </group>
+
         </body>
     </layout>
 </page>
