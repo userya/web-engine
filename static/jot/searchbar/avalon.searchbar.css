@@ -7,12 +7,19 @@
 
 }
 
+.oni-searchbar-selected{
+    margin-top:4px;
+}
+
 .oni-searchbar-label{
     display: inline-block;
+    vertical-align: top;
+    width: 65px;
 }
 
 .oni-searchbar-container{
     display: inline-block;
+    position: relative;
 }
 
 .oni-searchbar-item{

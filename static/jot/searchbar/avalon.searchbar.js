@@ -24,9 +24,12 @@ define(["avalon", "text!./avalon.searchbar.html", "css!./avalon.searchbar.css", 
         var vm = avalon.mix({
             $id : vmId,
             widgetElement : element,
-            $skipArray : ["widgetElement", "template"],
+            alterWraper: null,
+            selectedWraper: null,
+            $skipArray : ["widgetElement", "template", "alterWraper", "selectedWraper"],
             $uid : id,
             selectedItems:[],
+            containerWidth:0,
             removeSelectedItem: function (itemLabel) {
                 for(var i = 0; i < vmodel.selectedItems.length; i++){
                     if(vmodel.selectedItems[i].label == itemLabel){
@@ -47,6 +50,8 @@ define(["avalon", "text!./avalon.searchbar.html", "css!./avalon.searchbar.css", 
 
                 vmodel.alterLabel += "：";
                 vmodel.selectedLabel += "：";
+
+                vmodel.containerWidth = element.offsetWidth - 70;
 
                 if (continueScan) {
                     continueScan();

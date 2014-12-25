@@ -19,7 +19,9 @@ define(["avalon", "text!./avalon.searchcombox.html","avalon.getModel", "css!./av
         var vm = avalon.mix({
             $id: vmId,
             widgetElement: element,
-            $skipArray: ["widgetElement", "template"],
+            panelElement: null,
+            wrapElement: null,
+            $skipArray: ["widgetElement", "template", "panelElement", "wrapElement"],
             $uid: id,
             left:0,
             top:0,
@@ -41,10 +43,11 @@ define(["avalon", "text!./avalon.searchcombox.html","avalon.getModel", "css!./av
                 vmodel.panelVisible = false;
             },
             showPanel: function (e) {
+                var originShowStatus = vmodel.panelVisible;
                 vmodel.left = vmodel.wrapElement.offsetLeft;
                 vmodel.top = vmodel.wrapElement.offsetTop+vmodel.wrapElement.offsetHeight;
                 hideAllPanel();
-                vmodel.panelVisible = !vmodel.panelVisible;
+                vmodel.panelVisible = !originShowStatus;
                 if(vmodel.panelVisible){
                     setData();
                 }
@@ -57,6 +60,7 @@ define(["avalon", "text!./avalon.searchcombox.html","avalon.getModel", "css!./av
                 element.innerHTML = vmodel.template;
                 vmodel.panelElement = element.children[1];
                 vmodel.wrapElement = element.children[0];
+                element.style.position = "relative";
                 avalon.panels.push(vmodel);
                 if (continueScan) {
                     continueScan();
@@ -115,7 +119,7 @@ define(["avalon", "text!./avalon.searchcombox.html","avalon.getModel", "css!./av
         /**
          * afterSelect: 单击选择后触发的事件
          * */
-        afterSelect: avalon.noop(),
+        afterSelect: function(){},
         /**
          * dataType:数据来源类型
          * local:本地数据; server:服务器数据

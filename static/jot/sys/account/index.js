@@ -1,7 +1,7 @@
 /**
  * Created by JJ on 2014/12/18.
  */
-define("sys/account/index", ["global","smartgrid/avalon.smartgrid", "jotGrid/jotGrid"], function (g) {
+define("sys/account/index", ["global","smartgrid/avalon.smartgrid", "jotGrid/jotGrid", "searchbar/avalon.searchbar"], function (g) {
 
     function getDatas(number) {
         var data = []
