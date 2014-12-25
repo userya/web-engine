@@ -1,0 +1,21 @@
+<field>
+    <input-params>
+
+    </input-params>
+    <output-params>
+
+    </output-params>
+    <client-script>
+
+    </client-script>
+    <server-script>
+
+    </server-script>
+    <model>
+        <attribute type="server" name="id"></attribute>
+        <attribute type="page" name="selectCount"></attribute>
+    </model>
+    <layout>
+
+    </layout>
+</field>

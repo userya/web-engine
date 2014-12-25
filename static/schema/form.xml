@@ -1,0 +1,42 @@
+<page id="" bind="">
+    <input-params>
+        <param name="id"></param>
+    </input-params>
+    <output-params>
+        <param name="id" value="input:id"></param>
+        <param name="formData" value="model[type='server']"></param>
+    </output-params>
+    <client-script>
+
+    </client-script>
+    <server-script>
+        getId(id);
+        vm.aaaa = "";
+    </server-script>
+    <model>
+        <attribute type="server" name="id"></attribute>
+        <attribute type="page" name="selectCount"></attribute>
+    </model>
+    <layout>
+        <toolbar>
+            <command ms-visible="selectCount>0">保存</command>
+            <command>返回</command>
+        </toolbar>
+        <treebar>
+
+        </treebar>
+        <body>
+            <group name="aaa">
+                <col>
+                    <field bind="id" ms-click="fff"></field>
+                </col>
+                <col>
+                    <field bind="id"></field>
+                </col>
+                <col>
+                    <field bind="id"></field>
+                </col>
+            </group>
+        </body>
+    </layout>
+</page>

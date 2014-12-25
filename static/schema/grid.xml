@@ -1,0 +1,54 @@
+<page id="aa" name="ddd">
+    <input-params>
+        <param name="id" scope="request"></param>
+    </input-params>
+    <output-params>
+        <param name="id" value="input:id"></param>
+        <param name="formData" value="model[type='server']"></param>
+    </output-params>
+    <model id="AAA">
+        <attribute name="searcher" value=""></attribute>
+        <attribute name="grid"></attribute>
+    </model>
+    <client-script>
+        var inputParams = {};
+        var outputParams = {};
+        var modelParams = {};
+        AAA.$watch('',function(){
+
+        })
+
+    </client-script>
+    <server-script>
+        <method name="init">
+            XXXX
+        </method>
+        <method name="">
+            xxxxxx
+        </method>
+    </server-script>
+    <layout id="aaa" name="ddd">
+        <toolbar>
+            <command ms-visible="selectCount>0">保存</command>
+            <command>返回</command>
+        </toolbar>
+        <treebar>
+
+        </treebar>
+        <body>
+            <searcher bind="searcher" target="a">
+                <item label="ss" type="" condition="">
+                </item>
+            </searcher>
+            <grid id="a" bind="grid">
+
+            </grid>
+        </body>
+    </layout>
+</page>
+        <!--
+        步骤
+        1. client-script
+        2. server-script
+        3. layout-
+        -->
