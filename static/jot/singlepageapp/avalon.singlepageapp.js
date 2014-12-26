@@ -20,12 +20,13 @@ define(["avalon", "text!./avalon.singlepageapp.html", "css!./avalon.singlepageap
             widgetElement : element,
             $skipArray : ["widgetElement", "template"],
             $uid : id,
-            changeMenu: function (path) {
-                resetModules(path);
+            changeMenu: function (menu) {
+                vmodel.currentAppId = menu.path;
+                resetModules(menu.path);
             },
-            selectModule: function (path) {
-                vmodel.currentPath = path;
-                alert(path);
+            selectModule: function (appId, moduleId) {
+                vmodel.currentPath = appId + "/" + moduleId;
+                vmodel.currentModuleId = moduleId;
             },
             $init :  function (continueScan) {
                 if (inited) return;
@@ -125,7 +126,9 @@ define(["avalon", "text!./avalon.singlepageapp.html", "css!./avalon.singlepageap
         leftHeight:'400',
         contentWidth:'1',
         contentHeight:'1',
-        currentPath:'',
+        currentPath:'sys/111',
+        currentModuleId:'111',
+        currentAppId:'sys',
         topmenu:[{name:'系统管理', path:'sys', active:true}, {name:'开发平台', path:'2', active:true}],
         modules:[{
             "id": "10",
@@ -158,7 +161,6 @@ define(["avalon", "text!./avalon.singlepageapp.html", "css!./avalon.singlepageap
                 appId: 'sys',
                 "url":"/1/142"
             }],
-        currentModuleId:'',
         getTemplate: function (str, options) {
             return str;
         }

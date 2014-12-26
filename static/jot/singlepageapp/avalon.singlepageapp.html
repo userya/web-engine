@@ -7,7 +7,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li ms-repeat-menu="topmenu" ms-class-active="active:menu.active" ms-click="changeMenu(menu.path)">
+                        <li ms-repeat-menu="topmenu" ms-class-active="menu.path == currentAppId" ms-click="changeMenu(menu)">
                             <a ms-href="#!/{{menu.path}}" ms-text="menu.name"></a>
                         </li>
                     </ul>
@@ -32,12 +32,12 @@
     <div class="oni-singlepageapp-leftNav" ms-css-height="leftHeight">
         <ul class="nav nav-pills nav-stacked" role="tablist">
             <li role="presentation" ms-repeat-module="modules" ms-class-active="currentModuleId==module.id">
-                <a  ms-if="!module.subModules" ms-href="#!/{{module.appId}}/{{module.id}}" ms-text="module.title"></a>
-                <a  ms-if="module.subModules" href="javascript:void(0)" ms-text="module.title" ms-click="selectModule(module.appId+'/'+module.id)"></a>
+                <a  ms-if="!module.subModules" ms-href="#!/{{module.appId}}/{{module.id}}" ms-text="module.title" ms-click="selectModule(module.appId, module.id)"></a>
+                <a  ms-if="module.subModules" href="javascript:void(0)" ms-text="module.title"></a>
                 <div ms-if="module.subModules">
                     <ul class="nav nav-pills nav-stacked" role="tablist" >
                         <li role="presentation" ms-repeat-submodule="module.subModules" ms-class-active="currentModuleId==submodule.id">
-                            <a  ms-href="#!/{{submodule.appId}}/{{submodule.id}}"  ms-click="selectModule(module.appId+'/'+module.id)"><span class="oni-singlepageapp-submodule"  ms-text="submodule.title"></span></a>
+                            <a  ms-href="#!/{{submodule.appId}}/{{submodule.id}}"  ms-click="selectModule(submodule.appId, submodule.id)"><span class="oni-singlepageapp-submodule"  ms-text="submodule.title"></span></a>
                         </li>
                     </ul>
                 </div>

@@ -73,3 +73,8 @@
     padding: 2px;
     height: 53px;
 }
+
+.oni-singlepageapp-moduleselected{
+    background-color: gray;
+    color:#ffffff;
+}
