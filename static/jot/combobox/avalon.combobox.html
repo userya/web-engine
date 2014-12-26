@@ -1,0 +1,26 @@
+<div class="oni-combobox-container">
+    <div class="input-group">
+        <input type="text" class="form-control dropdown-toggle" data-toggle="dropdown" ms-attr-value="selectedText">
+        <input type="hidden" ms-attr-value="selectedValue" ms-attr-id="{{id}}">
+        <div class="input-group-btn dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="btn btn-default">
+                <span class="caret"></span>
+            </button>
+        </div>
+        <ul class="dropdown-menu pull-left" style="width: 250px">
+            <li ms-repeat-item="items">
+                <a href="#" ms-text="item.text"
+                   ms-click="selectedItem(item.value, item.text)"></a>
+            </li>
+            <li style="height: 30px;"><ul class="pagination ">
+                <li ms-class-100="disabled:previous" ms-click="prevPage($event)"><a href="#">&laquo;</a></li>
+                <li ms-repeat-page="pages"
+                    ms-class="active:page.active"
+                    ms-click="changePage($event, page.page)">
+                    <a href="#" ms-text="page.page"></a>
+                </li>
+                <li ms-class-101="disabled:next" ms-click="nextPage($event)"><a href="#">&raquo;</a></li>
+            </ul></li>
+        </ul>
+    </div>
+</div>
